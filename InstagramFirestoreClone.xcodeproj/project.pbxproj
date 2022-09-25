@@ -18,6 +18,11 @@
 		1A7D38A428E05F6C00145A8D /* InstagramFirestoreCloneUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7D38A328E05F6C00145A8D /* InstagramFirestoreCloneUITestsLaunchTests.swift */; };
 		1A7D38B128E0603E00145A8D /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 1A7D38B028E0603E00145A8D /* README.md */; };
 		1A7D38B928E0616100145A8D /* MainTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7D38B828E0616100145A8D /* MainTabController.swift */; };
+		1A7D38BB28E062EF00145A8D /* FeedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7D38BA28E062EF00145A8D /* FeedController.swift */; };
+		1A7D38BD28E0630000145A8D /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7D38BC28E0630000145A8D /* SearchController.swift */; };
+		1A7D38BF28E0631800145A8D /* ImageSelectorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7D38BE28E0631800145A8D /* ImageSelectorController.swift */; };
+		1A7D38C128E0633700145A8D /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7D38C028E0633700145A8D /* NotificationController.swift */; };
+		1A7D38C328E0634400145A8D /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7D38C228E0634400145A8D /* ProfileController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +58,11 @@
 		1A7D38A328E05F6C00145A8D /* InstagramFirestoreCloneUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramFirestoreCloneUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		1A7D38B028E0603E00145A8D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		1A7D38B828E0616100145A8D /* MainTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabController.swift; sourceTree = "<group>"; };
+		1A7D38BA28E062EF00145A8D /* FeedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedController.swift; sourceTree = "<group>"; };
+		1A7D38BC28E0630000145A8D /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
+		1A7D38BE28E0631800145A8D /* ImageSelectorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSelectorController.swift; sourceTree = "<group>"; };
+		1A7D38C028E0633700145A8D /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		1A7D38C228E0634400145A8D /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +173,11 @@
 			isa = PBXGroup;
 			children = (
 				1A7D38B828E0616100145A8D /* MainTabController.swift */,
+				1A7D38BA28E062EF00145A8D /* FeedController.swift */,
+				1A7D38BC28E0630000145A8D /* SearchController.swift */,
+				1A7D38BE28E0631800145A8D /* ImageSelectorController.swift */,
+				1A7D38C028E0633700145A8D /* NotificationController.swift */,
+				1A7D38C228E0634400145A8D /* ProfileController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -314,7 +329,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A7D388528E05F6B00145A8D /* ViewController.swift in Sources */,
+				1A7D38BF28E0631800145A8D /* ImageSelectorController.swift in Sources */,
+				1A7D38C128E0633700145A8D /* NotificationController.swift in Sources */,
+				1A7D38BD28E0630000145A8D /* SearchController.swift in Sources */,
 				1A7D388128E05F6B00145A8D /* AppDelegate.swift in Sources */,
+				1A7D38C328E0634400145A8D /* ProfileController.swift in Sources */,
+				1A7D38BB28E062EF00145A8D /* FeedController.swift in Sources */,
 				1A7D38B928E0616100145A8D /* MainTabController.swift in Sources */,
 				1A7D388328E05F6B00145A8D /* SceneDelegate.swift in Sources */,
 			);
