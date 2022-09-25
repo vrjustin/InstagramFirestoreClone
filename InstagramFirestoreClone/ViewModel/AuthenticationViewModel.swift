@@ -8,7 +8,17 @@
 import Foundation
 import UIKit
 
-struct LoginViewModel {
+protocol FormViewModel {
+    func updateForm()
+}
+
+protocol AuthentificationViewModel {
+    var formIsValid: Bool { get }
+    var buttonBackgroundColor: UIColor { get }
+    var buttonTextColor: UIColor { get }
+}
+
+struct LoginViewModel: AuthentificationViewModel {
     var email: String?
     var password: String?
     
@@ -25,6 +35,23 @@ struct LoginViewModel {
     }
 }
 
-struct RegistrationViewModel {
+struct RegistrationViewModel: AuthentificationViewModel {
+    var email: String?
+    var password: String?
+    var fullname: String?
+    var username: String?
+    var formIsValid: Bool {
+        return email?.isEmpty == false &&
+            password?.isEmpty == false &&
+            fullname?.isEmpty == false &&
+            username?.isEmpty == false
+    }
     
+    var buttonBackgroundColor: UIColor {
+        return formIsValid ? .systemBlue : .systemPurple.withAlphaComponent(0.5)
+    }
+    
+    var buttonTextColor: UIColor {
+        return formIsValid ? .white : UIColor(white: 1, alpha: 0.67)
+    }
 }
