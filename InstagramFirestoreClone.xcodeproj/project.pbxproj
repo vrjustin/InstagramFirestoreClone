@@ -27,6 +27,7 @@
 		1A7D38C728E06ED400145A8D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7D38C628E06ED400145A8D /* Extensions.swift */; };
 		1A7D38CA28E095BA00145A8D /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7D38C928E095BA00145A8D /* LoginController.swift */; };
 		1A7D38CE28E095F600145A8D /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7D38CD28E095F600145A8D /* RegistrationController.swift */; };
+		1A7D38D028E09F0D00145A8D /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7D38CF28E09F0D00145A8D /* CustomTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		1A7D38C628E06ED400145A8D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		1A7D38C928E095BA00145A8D /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		1A7D38CD28E095F600145A8D /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
+		1A7D38CF28E09F0D00145A8D /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				1A7D38C428E06E0D00145A8D /* FeedCell.swift */,
+				1A7D38CF28E09F0D00145A8D /* CustomTextField.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -348,6 +351,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A7D38D028E09F0D00145A8D /* CustomTextField.swift in Sources */,
 				1A7D388528E05F6B00145A8D /* ViewController.swift in Sources */,
 				1A7D38CA28E095BA00145A8D /* LoginController.swift in Sources */,
 				1A7D38C528E06E0D00145A8D /* FeedCell.swift in Sources */,
