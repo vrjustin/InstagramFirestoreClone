@@ -68,7 +68,6 @@ class LoginController: UIViewController {
     // MARK: - Actions
     
     @objc func noAccountAction() {
-        print("No Account Action triggered()")
         let controller = RegistrationController()
         navigationController?.pushViewController(controller, animated: true)
     }
