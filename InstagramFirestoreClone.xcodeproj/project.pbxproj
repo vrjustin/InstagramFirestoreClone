@@ -28,6 +28,7 @@
 		1A7D38CA28E095BA00145A8D /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7D38C928E095BA00145A8D /* LoginController.swift */; };
 		1A7D38CE28E095F600145A8D /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7D38CD28E095F600145A8D /* RegistrationController.swift */; };
 		1A7D38D028E09F0D00145A8D /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7D38CF28E09F0D00145A8D /* CustomTextField.swift */; };
+		1A7D38D228E0AAAD00145A8D /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7D38D128E0AAAD00145A8D /* AuthenticationViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		1A7D38C928E095BA00145A8D /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		1A7D38CD28E095F600145A8D /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
 		1A7D38CF28E09F0D00145A8D /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		1A7D38D128E0AAAD00145A8D /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +179,7 @@
 		1A7D38B428E060F600145A8D /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				1A7D38D128E0AAAD00145A8D /* AuthenticationViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 				1A7D38C528E06E0D00145A8D /* FeedCell.swift in Sources */,
 				1A7D38BF28E0631800145A8D /* ImageSelectorController.swift in Sources */,
 				1A7D38C128E0633700145A8D /* NotificationController.swift in Sources */,
+				1A7D38D228E0AAAD00145A8D /* AuthenticationViewModel.swift in Sources */,
 				1A7D38BD28E0630000145A8D /* SearchController.swift in Sources */,
 				1A7D388128E05F6B00145A8D /* AppDelegate.swift in Sources */,
 				1A7D38C328E0634400145A8D /* ProfileController.swift in Sources */,
