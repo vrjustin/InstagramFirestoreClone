@@ -16,6 +16,7 @@
 		1A7D389828E05F6C00145A8D /* InstagramFirestoreCloneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7D389728E05F6C00145A8D /* InstagramFirestoreCloneTests.swift */; };
 		1A7D38A228E05F6C00145A8D /* InstagramFirestoreCloneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7D38A128E05F6C00145A8D /* InstagramFirestoreCloneUITests.swift */; };
 		1A7D38A428E05F6C00145A8D /* InstagramFirestoreCloneUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7D38A328E05F6C00145A8D /* InstagramFirestoreCloneUITestsLaunchTests.swift */; };
+		1A7D38B128E0603E00145A8D /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 1A7D38B028E0603E00145A8D /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		1A7D389D28E05F6C00145A8D /* InstagramFirestoreCloneUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InstagramFirestoreCloneUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A7D38A128E05F6C00145A8D /* InstagramFirestoreCloneUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramFirestoreCloneUITests.swift; sourceTree = "<group>"; };
 		1A7D38A328E05F6C00145A8D /* InstagramFirestoreCloneUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramFirestoreCloneUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		1A7D38B028E0603E00145A8D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				1A7D388928E05F6C00145A8D /* Assets.xcassets */,
 				1A7D388B28E05F6C00145A8D /* LaunchScreen.storyboard */,
 				1A7D388E28E05F6C00145A8D /* Info.plist */,
+				1A7D38B028E0603E00145A8D /* README.md */,
 			);
 			path = InstagramFirestoreClone;
 			sourceTree = "<group>";
@@ -233,6 +236,7 @@
 			files = (
 				1A7D388D28E05F6C00145A8D /* LaunchScreen.storyboard in Resources */,
 				1A7D388A28E05F6C00145A8D /* Assets.xcassets in Resources */,
+				1A7D38B128E0603E00145A8D /* README.md in Resources */,
 				1A7D388828E05F6B00145A8D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
