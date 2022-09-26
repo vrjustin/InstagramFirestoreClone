@@ -13,6 +13,7 @@ class RegistrationController: UIViewController {
     // MARK: - Properties
     
     private var vm = RegistrationViewModel()
+    private var profileImage: UIImage?
     
     private let plusPhotoButton: UIButton = {
         let button = UIButton(type: .system)
@@ -46,6 +47,7 @@ class RegistrationController: UIViewController {
         button.isEnabled = false
         button.setHeight(50)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        button.addTarget(self, action: #selector(handleSignup), for: .touchUpInside)
         return button
     }()
     
@@ -65,6 +67,20 @@ class RegistrationController: UIViewController {
     }
     
     // MARK: - Actions
+    
+    @objc func handleSignup() {
+        print("handle signup called")
+        guard let email = emailTextField.text else { return }
+        guard let password = passwordTextField.text else { return }
+        guard let fullname = fullNameTextField.text else { return }
+        guard let username = userNameTextField.text else { return }
+        guard let profileImage = self.profileImage else { return }
+        let credentials = AuthCredentials(email: email, password: password,
+                                          fullname: fullname, username: username,
+                                          profileImage: profileImage)
+        
+        AuthService.registerUser(withCredential: credentials)
+    }
     
     @objc func photoButtonAction() {
         let picker = UIImagePickerController()
@@ -142,6 +158,8 @@ extension RegistrationController: UIImagePickerControllerDelegate, UINavigationC
         plusPhotoButton.layer.borderColor = UIColor.white.cgColor
         plusPhotoButton.layer.borderWidth = 2
         plusPhotoButton.setImage(selectedImage.withRenderingMode(.alwaysOriginal), for: .normal)
+        
+        profileImage = selectedImage
         
         self.dismiss(animated: true)
     }

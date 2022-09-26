@@ -40,6 +40,8 @@
 		1A7D38FC28E1CE7B00145A8D /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 1A7D38FB28E1CE7B00145A8D /* FirebaseMessaging */; };
 		1A7D38FE28E1CE7B00145A8D /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 1A7D38FD28E1CE7B00145A8D /* FirebaseStorage */; };
 		1A7D390028E1CE7B00145A8D /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 1A7D38FF28E1CE7B00145A8D /* FirebaseStorageCombine-Community */; };
+		1A7D390228E1D12000145A8D /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7D390128E1D12000145A8D /* ImageUploader.swift */; };
+		1A7D390428E1D12B00145A8D /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7D390328E1D12B00145A8D /* AuthService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +89,8 @@
 		1A7D38CF28E09F0D00145A8D /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		1A7D38D128E0AAAD00145A8D /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		1A7D38EA28E1CDE200145A8D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1A7D390128E1D12000145A8D /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
+		1A7D390328E1D12B00145A8D /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +228,8 @@
 		1A7D38B628E0611600145A8D /* API */ = {
 			isa = PBXGroup;
 			children = (
+				1A7D390128E1D12000145A8D /* ImageUploader.swift */,
+				1A7D390328E1D12B00145A8D /* AuthService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -406,6 +412,8 @@
 				1A7D38BB28E062EF00145A8D /* FeedController.swift in Sources */,
 				1A7D38B928E0616100145A8D /* MainTabController.swift in Sources */,
 				1A7D38C728E06ED400145A8D /* Extensions.swift in Sources */,
+				1A7D390228E1D12000145A8D /* ImageUploader.swift in Sources */,
+				1A7D390428E1D12B00145A8D /* AuthService.swift in Sources */,
 				1A7D388328E05F6B00145A8D /* SceneDelegate.swift in Sources */,
 				1A7D38CE28E095F600145A8D /* RegistrationController.swift in Sources */,
 			);
