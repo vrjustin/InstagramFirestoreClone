@@ -42,6 +42,8 @@
 		1A7D390028E1CE7B00145A8D /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 1A7D38FF28E1CE7B00145A8D /* FirebaseStorageCombine-Community */; };
 		1A7D390228E1D12000145A8D /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7D390128E1D12000145A8D /* ImageUploader.swift */; };
 		1A7D390428E1D12B00145A8D /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7D390328E1D12B00145A8D /* AuthService.swift */; };
+		1A7D390628E1F6E500145A8D /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7D390528E1F6E500145A8D /* ProfileCell.swift */; };
+		1A7D390828E1F6F600145A8D /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7D390728E1F6F600145A8D /* ProfileHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +93,8 @@
 		1A7D38EA28E1CDE200145A8D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1A7D390128E1D12000145A8D /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
 		1A7D390328E1D12B00145A8D /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		1A7D390528E1F6E500145A8D /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
+		1A7D390728E1F6F600145A8D /* ProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +203,7 @@
 			children = (
 				1A7D38C428E06E0D00145A8D /* FeedCell.swift */,
 				1A7D38CF28E09F0D00145A8D /* CustomTextField.swift */,
+				1A7D390928E1F70700145A8D /* Profile */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -249,6 +254,15 @@
 				1A7D38CD28E095F600145A8D /* RegistrationController.swift */,
 			);
 			path = Authentication;
+			sourceTree = "<group>";
+		};
+		1A7D390928E1F70700145A8D /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				1A7D390528E1F6E500145A8D /* ProfileCell.swift */,
+				1A7D390728E1F6F600145A8D /* ProfileHeader.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -400,6 +414,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A7D38D028E09F0D00145A8D /* CustomTextField.swift in Sources */,
+				1A7D390828E1F6F600145A8D /* ProfileHeader.swift in Sources */,
 				1A7D388528E05F6B00145A8D /* ViewController.swift in Sources */,
 				1A7D38CA28E095BA00145A8D /* LoginController.swift in Sources */,
 				1A7D38C528E06E0D00145A8D /* FeedCell.swift in Sources */,
@@ -414,6 +429,7 @@
 				1A7D38C728E06ED400145A8D /* Extensions.swift in Sources */,
 				1A7D390228E1D12000145A8D /* ImageUploader.swift in Sources */,
 				1A7D390428E1D12B00145A8D /* AuthService.swift in Sources */,
+				1A7D390628E1F6E500145A8D /* ProfileCell.swift in Sources */,
 				1A7D388328E05F6B00145A8D /* SceneDelegate.swift in Sources */,
 				1A7D38CE28E095F600145A8D /* RegistrationController.swift in Sources */,
 			);
