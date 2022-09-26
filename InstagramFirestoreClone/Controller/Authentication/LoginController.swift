@@ -41,6 +41,7 @@ class LoginController: UIViewController {
         button.isEnabled = false
         button.setHeight(50)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        button.addTarget(self, action: #selector(handleLoginButtonAction), for: .touchUpInside)
         return button
     }()
     
@@ -66,6 +67,18 @@ class LoginController: UIViewController {
     }
     
     // MARK: - Actions
+    
+    @objc func handleLoginButtonAction() {
+        guard let email = emailTextField.text else { return }
+        guard let password = passwordTextField.text else { return }
+        AuthService.loginUser(withEmail: email, password: password) { result, error in
+            if let error = error {
+                print("DEBUG: Error logging in user: error is: \(error.localizedDescription)")
+                return
+            }
+            self.dismiss(animated: true)
+        }
+    }
     
     @objc func noAccountAction() {
         let controller = RegistrationController()
