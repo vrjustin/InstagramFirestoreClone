@@ -11,10 +11,9 @@ import UIKit
 class UserCell: UITableViewCell {
     // MARK: - PROPERTIES
     
-    var user: User? {
+    var viewModel: UserCellViewModel? {
         didSet {
-            userNameLabel.text = user?.username
-            fullNameLabel.text = user?.fullName
+            configure()
         }
     }
     
@@ -63,5 +62,15 @@ class UserCell: UITableViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Helpers
+    
+    func configure() {
+        guard let viewModel = viewModel else { return }
+        
+        profileImageView.sd_setImage(with: viewModel.profileImageUrl)
+        userNameLabel.text = viewModel.userName
+        fullNameLabel.text = viewModel.fullName
     }
 }

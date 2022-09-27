@@ -50,6 +50,7 @@
 		1A7D391128E2241A00145A8D /* ProfileHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7D391028E2241A00145A8D /* ProfileHeaderViewModel.swift */; };
 		1A7D391428E228D500145A8D /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 1A7D391328E228D500145A8D /* SDWebImage */; };
 		1A85667928E31982008274A9 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A85667828E31982008274A9 /* UserCell.swift */; };
+		1A85667B28E346E7008274A9 /* UserCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A85667A28E346E7008274A9 /* UserCellViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +107,7 @@
 		1A7D390E28E2129A00145A8D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		1A7D391028E2241A00145A8D /* ProfileHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderViewModel.swift; sourceTree = "<group>"; };
 		1A85667828E31982008274A9 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		1A85667A28E346E7008274A9 /* UserCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCellViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,6 +229,7 @@
 			children = (
 				1A7D38D128E0AAAD00145A8D /* AuthenticationViewModel.swift */,
 				1A7D391028E2241A00145A8D /* ProfileHeaderViewModel.swift */,
+				1A85667A28E346E7008274A9 /* UserCellViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -448,6 +451,7 @@
 				1A7D391128E2241A00145A8D /* ProfileHeaderViewModel.swift in Sources */,
 				1A7D390D28E2105500145A8D /* Constants.swift in Sources */,
 				1A7D38BB28E062EF00145A8D /* FeedController.swift in Sources */,
+				1A85667B28E346E7008274A9 /* UserCellViewModel.swift in Sources */,
 				1A7D38B928E0616100145A8D /* MainTabController.swift in Sources */,
 				1A7D38C728E06ED400145A8D /* Extensions.swift in Sources */,
 				1A7D390228E1D12000145A8D /* ImageUploader.swift in Sources */,
