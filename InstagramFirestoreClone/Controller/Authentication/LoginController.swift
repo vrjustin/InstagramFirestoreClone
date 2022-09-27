@@ -8,11 +8,16 @@
 import Foundation
 import UIKit
 
+protocol AuthenticationDelegate: AnyObject {
+    func authenticationDidComplete()
+}
+
 class LoginController: UIViewController {
     
     // MARK: - Properties
     
     private var vm = LoginViewModel()
+    weak var delegate: AuthenticationDelegate?
     
     private let iconImage: UIImageView = {
         let iv = UIImageView(image: UIImage(imageLiteralResourceName: "Instagram_logo_white"))
@@ -76,12 +81,13 @@ class LoginController: UIViewController {
                 print("DEBUG: Error logging in user: error is: \(error.localizedDescription)")
                 return
             }
-            self.dismiss(animated: true)
+            self.delegate?.authenticationDidComplete()
         }
     }
     
     @objc func noAccountAction() {
         let controller = RegistrationController()
+        controller.delegate = delegate
         navigationController?.pushViewController(controller, animated: true)
     }
     

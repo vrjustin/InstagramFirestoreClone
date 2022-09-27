@@ -11,20 +11,38 @@ import FirebaseAuth
 
 class MainTabController: UITabBarController {
     
+    //MARK: - PROPERTIES
+    
+    private var user: User? {
+        didSet {
+            guard let user = user else { return }
+            configureViewControllers(withUser: user)
+        }
+    }
+    
+    
     //MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureViewControllers()
         checkIfUserIsLoggedIn()
+        fetchUser()
     }
     
     //MARK: - API
+    
+    func fetchUser() {
+        UserService.fetchUser { user in
+            self.user = user
+            self.navigationItem.title = user.username
+        }
+    }
     
     func checkIfUserIsLoggedIn() {
         if Auth.auth().currentUser == nil {
             DispatchQueue.main.async {
                 let controller = LoginController()
+                controller.delegate = self
                 let nav = UINavigationController(rootViewController: controller)
                 nav.modalPresentationStyle = .fullScreen
                 self.present(nav, animated: true)
@@ -34,7 +52,7 @@ class MainTabController: UITabBarController {
     
     //MARK: - Helpers
     
-    func configureViewControllers() {
+    func configureViewControllers(withUser user: User) {
         view.backgroundColor = .white
 
         let layout = UICollectionViewFlowLayout()
@@ -44,8 +62,8 @@ class MainTabController: UITabBarController {
         let imageSelector = templateNavigationController(unselectedImage: UIImage(imageLiteralResourceName: "plus_unselected"), selectedImage: UIImage(imageLiteralResourceName: "plus_unselected"), rootViewController: ImageSelectorController())
         let notification = templateNavigationController(unselectedImage: UIImage(imageLiteralResourceName: "like_unselected"), selectedImage: UIImage(imageLiteralResourceName: "like_selected"), rootViewController: NotificationController())
         
-        let profileLayout = UICollectionViewFlowLayout()
-        let profile = templateNavigationController(unselectedImage: UIImage(imageLiteralResourceName: "profile_unselected"), selectedImage: UIImage(imageLiteralResourceName: "profile_selected"), rootViewController: ProfileController(collectionViewLayout: profileLayout))
+        let profileController = ProfileController(user: user)
+        let profile = templateNavigationController(unselectedImage: UIImage(imageLiteralResourceName: "profile_unselected"), selectedImage: UIImage(imageLiteralResourceName: "profile_selected"), rootViewController: profileController)
         
         viewControllers = [feed, search, imageSelector, notification, profile]
         tabBar.tintColor = .black
@@ -58,5 +76,14 @@ class MainTabController: UITabBarController {
         nav.tabBarItem.selectedImage = selectedImage
         nav.navigationBar.tintColor = .black
         return nav
+    }
+}
+
+// MARK: - AuthenticationDelegate
+
+extension MainTabController: AuthenticationDelegate {
+    func authenticationDidComplete() {
+        fetchUser()
+        self.dismiss(animated: true)
     }
 }
