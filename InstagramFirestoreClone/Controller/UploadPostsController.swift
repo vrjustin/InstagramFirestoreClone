@@ -8,15 +8,24 @@
 import Foundation
 import UIKit
 
+protocol UploadPostControllerDelegate: AnyObject {
+    func controllerDidFinishUploadingPost(_ controller: UploadPostsController)
+}
+
 class UploadPostsController: UIViewController {
     
     // MARK: - PROPERTIES
+    
+    weak var delegate: UploadPostControllerDelegate?
+    
+    var selectedImage: UIImage? {
+        didSet { photoImageView.image = selectedImage }
+    }
     
     private let photoImageView: UIImageView = {
         let iv = UIImageView()
         iv.contentMode = .scaleAspectFill
         iv.clipsToBounds = true
-        iv.image = UIImage(imageLiteralResourceName: "venom-7")
         return iv
     }()
     
@@ -51,7 +60,15 @@ class UploadPostsController: UIViewController {
     }
     
     @objc func didTapShare() {
-        print("DEBUG: Tapped share button")
+        guard let image = selectedImage else { return }
+        guard let caption = captionTextView.text else { return }
+        PostService.uploadPost(caption: caption, image: image) { error in
+            if let error = error {
+                print("DEBUG: error in uploading post error is: \(error.localizedDescription)")
+                return
+            }
+            self.delegate?.controllerDidFinishUploadingPost(self)
+        }
     }
     
     // MARK: - HELPERS
