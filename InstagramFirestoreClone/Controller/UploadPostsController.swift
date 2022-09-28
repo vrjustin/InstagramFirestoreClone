@@ -20,8 +20,12 @@ class UploadPostsController: UIViewController {
         return iv
     }()
     
-    private let captionTextView: UITextView = {
-        let tv = UITextView()
+    private lazy var captionTextView: InputTextView = {
+        let tv = InputTextView()
+        tv.placeHolderText = "Enter Caption..."
+        tv.font = UIFont.systemFont(ofSize: 16)
+        tv.delegate = self
+        
         return tv
     }()
     
@@ -70,6 +74,22 @@ class UploadPostsController: UIViewController {
         captionTextView.anchor(top: photoImageView.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 16, paddingLeft: 12, paddingRight: 12, height: 64)
         
         view.addSubview(characterCountLabel)
-        characterCountLabel.anchor(bottom: captionTextView.bottomAnchor, right: view.rightAnchor, paddingRight: 12)
+        characterCountLabel.anchor(bottom: captionTextView.bottomAnchor, right: view.rightAnchor, paddingTop: -8, paddingRight: 12)
+    }
+    
+    func checkMaxLength(_ textView: UITextView) {
+        if textView.text.count > 100 {
+            textView.deleteBackward()
+        }
+    }
+}
+
+// MARK: - UITextFieldDelegate
+
+extension UploadPostsController: UITextViewDelegate {
+    func textViewDidChange(_ textView: UITextView) {
+        checkMaxLength(textView)
+        let count = textView.text.count
+        characterCountLabel.text = "\(count)/100"
     }
 }
