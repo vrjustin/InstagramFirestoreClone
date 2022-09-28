@@ -85,6 +85,10 @@ class MainTabController: UITabBarController {
             picker.dismiss(animated: true) {
                 guard let selectedImage = items.singlePhoto?.image else { return }
                 print("DEBUG: selected image: \(selectedImage)")
+                let controller = UploadPostsController()
+                let nav = UINavigationController(rootViewController: controller)
+                nav.modalPresentationStyle = .fullScreen
+                self.present(nav, animated: false)
             }
         }
     }
@@ -119,7 +123,7 @@ extension MainTabController: UITabBarControllerDelegate {
             let picker = YPImagePicker(configuration: config)
             picker.modalPresentationStyle = .fullScreen
             
-            present(picker, animated: true)
+            present(picker, animated: false)
             didFinishPickingMedia(picker)
             
         }
