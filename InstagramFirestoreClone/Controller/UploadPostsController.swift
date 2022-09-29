@@ -62,7 +62,9 @@ class UploadPostsController: UIViewController {
     @objc func didTapShare() {
         guard let image = selectedImage else { return }
         guard let caption = captionTextView.text else { return }
+        showLoader(true)
         PostService.uploadPost(caption: caption, image: image) { error in
+            self.showLoader(false)
             if let error = error {
                 print("DEBUG: error in uploading post error is: \(error.localizedDescription)")
                 return
