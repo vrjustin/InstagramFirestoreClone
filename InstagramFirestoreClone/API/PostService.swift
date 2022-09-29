@@ -43,10 +43,13 @@ struct PostService {
         
         query.getDocuments { snapshot, error in
             guard let documents = snapshot?.documents else { return }
+            var posts = documents.map({ Post(postId: $0.documentID, dataDictionary: $0.data())})
             
-            print("DEBUG: PostService: fetchPosts for user: \(uid), posts: \(documents)")
+            //since firebase does not allow us to use the whereField and a orderBy function at the same time. First use the whereField above and now we'll manually sort the returned posts.
+            posts.sort { post1, post2 in
+                return post1.timestamp.seconds > post2.timestamp.seconds
+            }
             
-            let posts = documents.map({ Post(postId: $0.documentID, dataDictionary: $0.data())})
             completion(posts)
         }
         
