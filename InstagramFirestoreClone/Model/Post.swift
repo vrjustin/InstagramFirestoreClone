@@ -15,6 +15,8 @@ struct Post {
     let imageUrl: String
     let ownerUid: String
     let timestamp: Timestamp
+    let ownerImageUrl: String
+    let ownerUserName: String
     
     init(postId: String, dataDictionary: [String:Any]) {
         self.postId = postId
@@ -22,6 +24,8 @@ struct Post {
         self.likes = dataDictionary["likes"] as? Int ?? 0
         self.imageUrl = dataDictionary["imageUrl"] as? String ?? ""
         self.ownerUid = dataDictionary["owner"] as? String ?? ""
+        self.ownerImageUrl = dataDictionary["ownerImageUrl"] as? String ?? ""
+        self.ownerUserName = dataDictionary["ownerUsername"] as? String ?? ""
         self.timestamp = dataDictionary["timestamp"] as? Timestamp ?? Timestamp(date: Date())
     }
 }

@@ -18,9 +18,10 @@ class FeedCell: UICollectionViewCell {
     
     private let profileImageView: UIImageView = {
         let iv = UIImageView()
-        iv.contentMode = .scaleAspectFit
+        iv.contentMode = .scaleAspectFill
         iv.clipsToBounds = true
         iv.isUserInteractionEnabled = true
+        iv.backgroundColor = .lightGray
         iv.image = UIImage(imageLiteralResourceName: "venom-7")
         return iv
     }()
@@ -28,7 +29,6 @@ class FeedCell: UICollectionViewCell {
     private lazy var usernameButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitleColor(.black, for: .normal)
-        button.setTitle("venom", for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 13)
         button.addTarget(self, action: #selector(didTapUsername), for: .touchUpInside)
         return button
@@ -137,10 +137,9 @@ class FeedCell: UICollectionViewCell {
         
         captionLabel.text = viewModel.caption
         postImageView.sd_setImage(with: viewModel.imageUrl)
-        if viewModel.likes == 0 || viewModel.likes >= 2 {
-            likesLabel.text = "\(viewModel.likes) likes"
-        } else {
-            likesLabel.text = "\(viewModel.likes) like"
-        }
+        likesLabel.text = viewModel.likesLabelText
+        
+        profileImageView.sd_setImage(with: viewModel.userProfileImageUrl)
+        usernameButton.setTitle(viewModel.ownerUsername, for: .normal)
     }
 }
