@@ -14,6 +14,8 @@ class CommentController: UICollectionViewController {
     
     // MARK: - PROPERTIES
     
+    private let post: Post
+    
     private lazy var commentInputView: CommentInputAccessoryView = {
         let frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 50)
         let cv = CommentInputAccessoryView(frame: frame)
@@ -30,6 +32,15 @@ class CommentController: UICollectionViewController {
     }
     
     // MARK: - LIFECYCLE
+    
+    init(post: Post) {
+        self.post = post
+        super.init(collectionViewLayout: UICollectionViewFlowLayout())
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -86,6 +97,17 @@ extension CommentController: UICollectionViewDelegateFlowLayout {
 
 extension CommentController: CommentInputAccessoryViewDelegate {
     func inputView(_ inputView: CommentInputAccessoryView, wantsToUploadComment comment: String) {
-        inputView.clearCommentTextView()
+        guard let tab = self.tabBarController as? MainTabController else { return }
+        guard let user = tab.user else { return }
+        showLoader(true)
+        CommentsService.uploadComment(comment: comment, postID: post.postId, user: user) { error in
+            self.showLoader(false)
+            if let error = error {
+                print("DEBUG: Error uploading comment to firebase. error is: \(error.localizedDescription)")
+                return
+            }
+            inputView.clearCommentTextView()
+        }
+        
     }
 }
