@@ -8,9 +8,15 @@
 import Foundation
 import UIKit
 
+protocol CommentInputAccessoryViewDelegate: AnyObject {
+    func inputView(_ inputView: CommentInputAccessoryView, wantsToUploadComment comment: String)
+}
+
 class CommentInputAccessoryView: UIView {
     
     // MARK: - PROPERTIES
+    
+    weak var delegate: CommentInputAccessoryViewDelegate?
     
     private let commentTextView: InputTextView = {
         let tv = InputTextView()
@@ -26,7 +32,7 @@ class CommentInputAccessoryView: UIView {
         button.setTitle("Post", for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
-        button.addTarget(CommentInputAccessoryView.self, action: #selector(handlePostTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handlePostTapped), for: .touchUpInside)
         return button
     }()
     
@@ -35,6 +41,7 @@ class CommentInputAccessoryView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        backgroundColor = .white
         autoresizingMask = .flexibleHeight
         
         addSubview(postButton)
@@ -64,6 +71,13 @@ class CommentInputAccessoryView: UIView {
     // MARK: - ACTIONS
     
     @objc func handlePostTapped() {
-        print("Handle Post Tapped...")
+        delegate?.inputView(self, wantsToUploadComment: commentTextView.text)
+    }
+    
+    // MARK: - Helpers
+    
+    func clearCommentTextView() {
+        commentTextView.text = nil
+        commentTextView.placeholderLabel.isHidden = false
     }
 }
