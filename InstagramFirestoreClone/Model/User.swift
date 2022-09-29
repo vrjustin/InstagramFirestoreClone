@@ -27,12 +27,12 @@ struct User {
         self.profileImageUrl = dataDictionary["profileImageUrl"] as? String ?? ""
         self.uid = dataDictionary["uid"] as? String ?? ""
         self.username = dataDictionary["username"] as? String ?? ""
-        self.stats = UserStats(followers: 0, following: 0)
+        self.stats = UserStats(followers: 0, following: 0, posts: 0)
     }
 }
 
 struct UserStats {
     let followers: Int
     let following: Int
-//    let posts: Int
+    let posts: Int
 }
