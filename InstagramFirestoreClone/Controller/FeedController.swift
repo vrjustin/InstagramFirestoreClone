@@ -161,6 +161,11 @@ extension FeedController: FeedCellDelegate {
                 cell.likeButton.setImage(UIImage(imageLiteralResourceName: "like_selected"), for: .normal)
                 cell.likeButton.tintColor = .red
                 cell.viewModel?.post.likes = post.likes + 1
+                
+                NotificationService.uploadNotification(toUserWithUid: post.ownerUid,
+                                                       type: .like,
+                                                       post: post)
+                
             }
         }
     }
