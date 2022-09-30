@@ -62,6 +62,8 @@
 		1A8032E428E62052008D1F1A /* CommentsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8032E328E62052008D1F1A /* CommentsService.swift */; };
 		1A8032E628E62EEF008D1F1A /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8032E528E62EEF008D1F1A /* Comment.swift */; };
 		1A8032E828E70B23008D1F1A /* CommentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8032E728E70B23008D1F1A /* CommentViewModel.swift */; };
+		1A8032EA28E73A38008D1F1A /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8032E928E73A38008D1F1A /* NotificationCell.swift */; };
+		1A8032EC28E7407C008D1F1A /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8032EB28E7407C008D1F1A /* Notification.swift */; };
 		1A85667928E31982008274A9 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A85667828E31982008274A9 /* UserCell.swift */; };
 		1A85667B28E346E7008274A9 /* UserCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A85667A28E346E7008274A9 /* UserCellViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -130,6 +132,8 @@
 		1A8032E328E62052008D1F1A /* CommentsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsService.swift; sourceTree = "<group>"; };
 		1A8032E528E62EEF008D1F1A /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		1A8032E728E70B23008D1F1A /* CommentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewModel.swift; sourceTree = "<group>"; };
+		1A8032E928E73A38008D1F1A /* NotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
+		1A8032EB28E7407C008D1F1A /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		1A85667828E31982008274A9 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		1A85667A28E346E7008274A9 /* UserCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCellViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -237,6 +241,7 @@
 				1A7D390E28E2129A00145A8D /* User.swift */,
 				1A8032D928E5C5B1008D1F1A /* Post.swift */,
 				1A8032E528E62EEF008D1F1A /* Comment.swift */,
+				1A8032EB28E7407C008D1F1A /* Notification.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -251,6 +256,7 @@
 				1A8032D228E481AD008D1F1A /* InputTextView.swift */,
 				1A8032DF28E5EF91008D1F1A /* CommentCell.swift */,
 				1A8032E128E60C76008D1F1A /* CommentInputAccessoryView.swift */,
+				1A8032E928E73A38008D1F1A /* NotificationCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -488,6 +494,7 @@
 				1A8032D128E47D07008D1F1A /* UploadPostsController.swift in Sources */,
 				1A7D38C128E0633700145A8D /* NotificationController.swift in Sources */,
 				1A8032E628E62EEF008D1F1A /* Comment.swift in Sources */,
+				1A8032EC28E7407C008D1F1A /* Notification.swift in Sources */,
 				1A7D38D228E0AAAD00145A8D /* AuthenticationViewModel.swift in Sources */,
 				1A85667928E31982008274A9 /* UserCell.swift in Sources */,
 				1A7D38BD28E0630000145A8D /* SearchController.swift in Sources */,
@@ -510,6 +517,7 @@
 				1A7D390628E1F6E500145A8D /* ProfileCell.swift in Sources */,
 				1A7D388328E05F6B00145A8D /* SceneDelegate.swift in Sources */,
 				1A8032E428E62052008D1F1A /* CommentsService.swift in Sources */,
+				1A8032EA28E73A38008D1F1A /* NotificationCell.swift in Sources */,
 				1A7D38CE28E095F600145A8D /* RegistrationController.swift in Sources */,
 				1A8032E028E5EF91008D1F1A /* CommentCell.swift in Sources */,
 			);
