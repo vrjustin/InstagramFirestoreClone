@@ -15,7 +15,9 @@ class FeedController: UICollectionViewController {
     
     // MARK: - PROPERTIES
     
-    private var posts = [Post]()
+    private var posts = [Post]() {
+        didSet { collectionView.reloadData() }
+    }
     var post: Post?
     
     // MARK: - Lifecycle
@@ -55,14 +57,22 @@ class FeedController: UICollectionViewController {
         
         PostService.fetchPosts { posts in
             self.posts = posts
-            print("did fetch posts....")
             self.collectionView.refreshControl?.endRefreshing()
-            self.collectionView.reloadData()
+            self.checkIfUserLikedPosts()
         }
     }
-
     
     // MARK: - Helpers
+    
+    func checkIfUserLikedPosts() {
+        self.posts.forEach { post in
+            PostService.checkIfUserLikedPost(post: post) { didLike in
+                if let index = self.posts.firstIndex(where: { $0.postId == post.postId }) {
+                    self.posts[index].didLike = didLike
+                }
+            }
+        }
+    }
     
     func configureUI() {
         collectionView.backgroundColor = .white
@@ -132,7 +142,6 @@ extension FeedController: FeedCellDelegate {
         
         if post.didLike {
             //Unlike the post
-            print("DEBUG: Unlike the post - since its already liked!")
             PostService.unlikePost(post: post) { error in
                 if let error = error {
                     print("DEBUG: Error unliking post: \(error.localizedDescription)")
@@ -140,6 +149,7 @@ extension FeedController: FeedCellDelegate {
                 }
                 cell.likeButton.setImage(UIImage(imageLiteralResourceName: "like_unselected"), for: .normal)
                 cell.likeButton.tintColor = .black
+                cell.viewModel?.post.likes = post.likes - 1
             }
         } else {
             //Like the post
@@ -150,6 +160,7 @@ extension FeedController: FeedCellDelegate {
                 }
                 cell.likeButton.setImage(UIImage(imageLiteralResourceName: "like_selected"), for: .normal)
                 cell.likeButton.tintColor = .red
+                cell.viewModel?.post.likes = post.likes + 1
             }
         }
     }
