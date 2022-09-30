@@ -133,7 +133,14 @@ extension FeedController: FeedCellDelegate {
         if post.didLike {
             //Unlike the post
             print("DEBUG: Unlike the post - since its already liked!")
-            
+            PostService.unlikePost(post: post) { error in
+                if let error = error {
+                    print("DEBUG: Error unliking post: \(error.localizedDescription)")
+                    return
+                }
+                cell.likeButton.setImage(UIImage(imageLiteralResourceName: "like_unselected"), for: .normal)
+                cell.likeButton.tintColor = .black
+            }
         } else {
             //Like the post
             PostService.likePost(post: post) { error in
