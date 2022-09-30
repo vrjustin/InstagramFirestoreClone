@@ -11,6 +11,7 @@ import UIKit
 protocol FeedCellDelegate: AnyObject {
     func cell(_ cell: FeedCell, wantsToShowCommentsFor post: Post)
     func cell(_ cell: FeedCell, didLike post: Post)
+    func cell(_ cell: FeedCell, wantsToShowProfileForUser uid: String)
 }
 
 class FeedCell: UICollectionViewCell {
@@ -23,13 +24,14 @@ class FeedCell: UICollectionViewCell {
     
     weak var delegate: FeedCellDelegate?
     
-    private let profileImageView: UIImageView = {
+    private lazy var profileImageView: UIImageView = {
         let iv = UIImageView()
         iv.contentMode = .scaleAspectFill
         iv.clipsToBounds = true
         iv.isUserInteractionEnabled = true
         iv.backgroundColor = .lightGray
-        iv.image = UIImage(imageLiteralResourceName: "venom-7")
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(showUserProfile))
+        iv.addGestureRecognizer(tapGestureRecognizer)
         return iv
     }()
     
@@ -37,7 +39,7 @@ class FeedCell: UICollectionViewCell {
         let button = UIButton(type: .system)
         button.setTitleColor(.black, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 13)
-        button.addTarget(self, action: #selector(didTapUsername), for: .touchUpInside)
+        button.addTarget(self, action: #selector(showUserProfile), for: .touchUpInside)
         return button
     }()
     
@@ -129,8 +131,9 @@ class FeedCell: UICollectionViewCell {
     
     // MARK: - Actions
     
-    @objc func didTapUsername() {
-        print("DEBUG: did tap username")
+    @objc func showUserProfile() {
+        guard let vm = viewModel else { return }
+        delegate?.cell(self, wantsToShowProfileForUser: vm.post.ownerUid)
     }
     
     @objc func didTapCommentButton() {
