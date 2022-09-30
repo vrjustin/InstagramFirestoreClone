@@ -10,6 +10,7 @@ import UIKit
 
 protocol FeedCellDelegate: AnyObject {
     func cell(_ cell: FeedCell, wantsToShowCommentsFor post: Post)
+    func cell(_ cell: FeedCell, didLike post: Post)
 }
 
 class FeedCell: UICollectionViewCell {
@@ -49,10 +50,11 @@ class FeedCell: UICollectionViewCell {
         return iv
     }()
     
-    private lazy var likeButton: UIButton = {
+    lazy var likeButton: UIButton = {
         let button = UIButton(type: .system)
         button.tintColor = .black
         button.setImage(UIImage(imageLiteralResourceName: "like_unselected"), for: .normal)
+        button.addTarget(self, action: #selector(didTapLikeButton), for: .touchUpInside)
         return button
     }()
     
@@ -135,6 +137,11 @@ class FeedCell: UICollectionViewCell {
         print("DEBUG: did tap comment button!")
         guard let vm = viewModel else { return }
         delegate?.cell(self, wantsToShowCommentsFor: vm.post)
+    }
+    
+    @objc func didTapLikeButton() {
+        guard let vm = viewModel else { return }
+        delegate?.cell(self, didLike: vm.post)
     }
     
     // MARK: - Helpers

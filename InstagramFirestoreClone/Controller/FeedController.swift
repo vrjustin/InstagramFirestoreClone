@@ -121,8 +121,29 @@ extension FeedController: UICollectionViewDelegateFlowLayout {
 // MARK: - FeedCellDelegate
 
 extension FeedController: FeedCellDelegate {
+    
     func cell(_ cell: FeedCell, wantsToShowCommentsFor post: Post) {
         let controller = CommentController(post: post)
         navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    func cell(_ cell: FeedCell, didLike post: Post) {
+        cell.viewModel?.post.didLike.toggle()
+        
+        if post.didLike {
+            //Unlike the post
+            print("DEBUG: Unlike the post - since its already liked!")
+            
+        } else {
+            //Like the post
+            PostService.likePost(post: post) { error in
+                if let error = error {
+                    print("DEBUG: Error Liking Post: error is: \(error.localizedDescription)")
+                    return
+                }
+                cell.likeButton.setImage(UIImage(imageLiteralResourceName: "like_selected"), for: .normal)
+                cell.likeButton.tintColor = .red
+            }
+        }
     }
 }
