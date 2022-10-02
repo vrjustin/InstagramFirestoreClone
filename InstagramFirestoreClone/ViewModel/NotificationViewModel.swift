@@ -10,7 +10,7 @@ import UIKit
 
 struct NotificationViewModel {
     
-    private let notification: Notification
+    var notification: Notification
     
     var postImageUrl: URL? {
         return URL(string: notification.postImageUrl ?? "")
@@ -33,6 +33,18 @@ struct NotificationViewModel {
     
     var shouldHidePostImage: Bool {
         return self.notification.type == .follow
+    }
+    
+    var followButtonText: String {
+        return notification.userIsFollowed ? "Following" : "Follow"
+    }
+    
+    var followButtonBackgroundColor: UIColor {
+        return notification.userIsFollowed ? .white : .systemBlue
+    }
+    
+    var followButtonTextColor: UIColor {
+        return notification.userIsFollowed ? .black : .white
     }
     
     init(notification: Notification) {

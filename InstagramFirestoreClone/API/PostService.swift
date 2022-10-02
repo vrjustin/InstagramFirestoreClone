@@ -55,6 +55,19 @@ struct PostService {
         
     }
     
+    static func fetchPost(withPostId postId: String, completion: @escaping(Post) -> Void) {
+        COLLECTION_POSTS.document(postId).getDocument { snapshot, error in
+            if let error = error {
+                print("DEBUG: Error getting Post: \(postId) error: \(error.localizedDescription)")
+                return
+            }
+            guard let document = snapshot else { return }
+            guard let data = document.data() else { return }
+            let post = Post(postId: document.documentID, dataDictionary: data)
+            completion(post)
+        }
+    }
+    
     static func likePost(post: Post, completion: @escaping(FirestoreCompletion)) {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         COLLECTION_POSTS.document(post.postId).updateData(["likes": post.likes + 1])
