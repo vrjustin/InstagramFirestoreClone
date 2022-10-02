@@ -31,6 +31,10 @@ struct NotificationViewModel {
         return attributedText
     }
     
+    var shouldHidePostImage: Bool {
+        return self.notification.type == .follow
+    }
+    
     init(notification: Notification) {
         self.notification = notification
     }
