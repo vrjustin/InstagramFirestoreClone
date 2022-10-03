@@ -23,8 +23,9 @@ struct PostService {
                         "ownerUsername": user.username] as [String: Any]
             
             
-            COLLECTION_POSTS.addDocument(data: data, completion: completion)
+            let docRef = COLLECTION_POSTS.addDocument(data: data, completion: completion)
             
+            self.updateUserFeedAfterPost(postId: docRef.documentID)
         }
     }
     
@@ -137,4 +138,24 @@ struct PostService {
         }
     }
     
+    /*
+     This is not the most efficient way to handle this. Ideally the updating of userfeed should occur on
+     the backend just when a post is uploaded. One network call in that case.
+     */
+    private static func updateUserFeedAfterPost(postId: String) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+
+        //First get the list of followers for that uid.
+        COLLECTION_FOLLOWERS.document(uid).collection("user-followers").getDocuments { snapshot, error in
+            if let error = error {
+                print("DEBUG: Error retreiving followers for uid: \(uid) with error: \(error.localizedDescription)")
+                return
+            }
+            guard let documents = snapshot?.documents else { return }
+            documents.forEach { document in
+                COLLECTION_USERS.document(document.documentID).collection("user-feed").document(postId).setData([:])
+            }
+            COLLECTION_USERS.document(uid).collection("user-feed").document(postId).setData([:])
+        }
+    }
 }
