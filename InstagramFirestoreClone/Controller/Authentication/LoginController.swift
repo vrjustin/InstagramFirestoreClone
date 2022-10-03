@@ -53,6 +53,7 @@ class LoginController: UIViewController {
     private let forgotPasswordButton: UIButton = {
         let button = UIButton(type: .system)
         button.attributedTitle(firstPart: "Forgot your password?", secondPart: "Get help signing in.")
+        button.addTarget(self, action: #selector(handleForgotPasswordAction), for: .touchUpInside)
         return button
     }()
     
@@ -72,6 +73,12 @@ class LoginController: UIViewController {
     }
     
     // MARK: - Actions
+    
+    @objc func handleForgotPasswordAction() {
+        let controller = ResetPasswordController()
+        controller.delegate = self
+        navigationController?.pushViewController(controller, animated: true)
+    }
     
     @objc func handleLoginButtonAction() {
         guard let email = emailTextField.text else { return }
@@ -139,5 +146,14 @@ extension LoginController: FormViewModel {
         loginButton.backgroundColor = vm.buttonBackgroundColor
         loginButton.setTitleColor(vm.buttonTextColor, for: .normal)
         loginButton.isEnabled = vm.formIsValid
+    }
+}
+
+// MARK: - ResetPasswordControllerDelegate
+
+extension LoginController: ResetPasswordControllerDelegate {
+    func controllerDidSendResetPasswordLink(_ controller: ResetPasswordController) {
+        navigationController?.popViewController(animated: true)
+        showMessage(withTitle: "Success", message: "We sent a link to your email to reset your password.")
     }
 }

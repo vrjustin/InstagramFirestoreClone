@@ -12,13 +12,13 @@ protocol FormViewModel {
     func updateForm()
 }
 
-protocol AuthentificationViewModel {
+protocol AuthenticationViewModel {
     var formIsValid: Bool { get }
     var buttonBackgroundColor: UIColor { get }
     var buttonTextColor: UIColor { get }
 }
 
-struct LoginViewModel: AuthentificationViewModel {
+struct LoginViewModel: AuthenticationViewModel {
     var email: String?
     var password: String?
     
@@ -35,7 +35,7 @@ struct LoginViewModel: AuthentificationViewModel {
     }
 }
 
-struct RegistrationViewModel: AuthentificationViewModel {
+struct RegistrationViewModel: AuthenticationViewModel {
     var email: String?
     var password: String?
     var fullname: String?
@@ -54,4 +54,21 @@ struct RegistrationViewModel: AuthentificationViewModel {
     var buttonTextColor: UIColor {
         return formIsValid ? .white : UIColor(white: 1, alpha: 0.67)
     }
+}
+
+struct ResetPasswordViewModel: AuthenticationViewModel {
+    var email: String?
+    
+    var formIsValid: Bool {
+        return email?.isEmpty == false
+    }
+    
+    var buttonBackgroundColor: UIColor {
+        return formIsValid ? .systemBlue : .systemPurple.withAlphaComponent(0.5)
+    }
+    
+    var buttonTextColor: UIColor {
+        return formIsValid ? .white : UIColor(white: 1, alpha: 0.67)
+    }
+    
 }

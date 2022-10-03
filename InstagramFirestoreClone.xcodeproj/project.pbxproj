@@ -66,6 +66,7 @@
 		1A8032EC28E7407C008D1F1A /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8032EB28E7407C008D1F1A /* Notification.swift */; };
 		1A8032EE28E756AE008D1F1A /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8032ED28E756AE008D1F1A /* NotificationService.swift */; };
 		1A8032F028E76184008D1F1A /* NotificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8032EF28E76184008D1F1A /* NotificationViewModel.swift */; };
+		1A8032F228EB0CBF008D1F1A /* ResetPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8032F128EB0CBF008D1F1A /* ResetPasswordController.swift */; };
 		1A85667928E31982008274A9 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A85667828E31982008274A9 /* UserCell.swift */; };
 		1A85667B28E346E7008274A9 /* UserCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A85667A28E346E7008274A9 /* UserCellViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -138,6 +139,7 @@
 		1A8032EB28E7407C008D1F1A /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		1A8032ED28E756AE008D1F1A /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		1A8032EF28E76184008D1F1A /* NotificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewModel.swift; sourceTree = "<group>"; };
+		1A8032F128EB0CBF008D1F1A /* ResetPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordController.swift; sourceTree = "<group>"; };
 		1A85667828E31982008274A9 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		1A85667A28E346E7008274A9 /* UserCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCellViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -321,6 +323,7 @@
 			children = (
 				1A7D38C928E095BA00145A8D /* LoginController.swift */,
 				1A7D38CD28E095F600145A8D /* RegistrationController.swift */,
+				1A8032F128EB0CBF008D1F1A /* ResetPasswordController.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -512,6 +515,7 @@
 				1A7D391128E2241A00145A8D /* ProfileHeaderViewModel.swift in Sources */,
 				1A8032D328E481AD008D1F1A /* InputTextView.swift in Sources */,
 				1A7D390D28E2105500145A8D /* Constants.swift in Sources */,
+				1A8032F228EB0CBF008D1F1A /* ResetPasswordController.swift in Sources */,
 				1A7D38BB28E062EF00145A8D /* FeedController.swift in Sources */,
 				1A85667B28E346E7008274A9 /* UserCellViewModel.swift in Sources */,
 				1A7D38B928E0616100145A8D /* MainTabController.swift in Sources */,
